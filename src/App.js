@@ -1,13 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./HomeStore/Home";
+import Header from "./Nav/Header";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SingleBeer from "./SingleBeer/SingleBeer";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <h1>Hello React</h1>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Header />
+    
+        <Routes>
+     
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/beers/:id" element={<SingleBeer />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
