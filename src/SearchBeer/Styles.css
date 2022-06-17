@@ -1,0 +1,18 @@
+.ui.container {
+    text-align: center;
+}
+  
+h3 {
+    margin-top: 0px;
+}
+  
+.ui.grid {
+    margin-top: 25px;
+}
+  
+.ui.grid .column {
+    background-clip: content-box;
+    height: 100px;
+    color: white;
+   
+}

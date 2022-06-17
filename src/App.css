@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: url('./BackgroundImage/beers.png');
 }
 
 .App-logo {
@@ -35,3 +36,5 @@
     transform: rotate(360deg);
   }
 }
+
+

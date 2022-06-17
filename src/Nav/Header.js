@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <>
       <Nav>
-        <div class="logo-holder logo-8">
+        <div className="logo-holder logo-8">
           <h3>
             Cervezas<span>Cervezas</span>
           </h3>

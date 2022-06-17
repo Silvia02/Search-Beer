@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Button, Section, Title, Wrapper, Div, List, ListItem } from "./Styles";
+import { Button,  Title,  Div, List, ListItem } from "./Styles";
+import { Card,  Image, Grid } from "semantic-ui-react";
 
 const SingleBeer = () => {
   const [singleBeer, setSingleBeer] = useState([]);
@@ -22,37 +23,42 @@ const SingleBeer = () => {
   }, [id]);
 
   return (
-    <Section>
+    <>
       <Button onClick={() => navigate(-1)}>Go back</Button>
+    <Grid className="ui centered card">
 
       {singleBeer.map((element) => {
         return (
           <>
-            <img src={element.image_url} size="medium" wrapped ui={false} />
+            <Card >
+              <Image src={element.image_url} size='small' wrapped className="ui centered image" />
 
-            <p key={element.id}>
-              <Title>{element.name}</Title>
+              <p key={element.id}>
+                <h2>{element.name}</h2>
 
-              <strong>Alcohol content: </strong>
-              {element.abv}
+                <strong>
+                  Alcohol content: <p>{element.abv}</p>
+                </strong>
 
-              <strong>Description</strong>
-              <p>{element.description}</p>
-              <Title>Fits perfectly with:</Title>
-            </p>
-            {element.food_pairing.map((food, index) => {
-              return (
-                <Div>
-                  <List as="ul" key={index}>
-                    <ListItem as="li">{food}</ListItem>
-                  </List>
-                </Div>
-              );
-            })}
+                <strong>Description</strong>
+                <p>{element.description}</p>
+                <Title>Fits perfectly with:</Title>
+              </p>
+              {element.food_pairing.map((food, index) => {
+                return (
+                  <Div>
+                    <List as="ul" key={index}>
+                      <ListItem as="li">{food}</ListItem>
+                    </List>
+                  </Div>
+                );
+              })}
+            </Card>
           </>
         );
       })}
-    </Section>
+      </Grid>
+      </>
   );
 };
 

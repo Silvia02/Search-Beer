@@ -1,21 +1,27 @@
 import React from "react";
-import "./Styles";
+import './Styles.css'
 import { Link } from "react-router-dom";
+import { Grid, Image, Card } from "semantic-ui-react";
 
-const Search = ({ imageObjects }) => {
+const Search = ({ filters }) => {
   return (
-    <div className="test-1">
-      <div className="test">
-        <h1>Testando</h1>
+    <Grid >
+      <Card >
+        <h3>{filters.name}</h3>
+        <br />
+        <strong>Alcohol content: {filters.abv}</strong>
+        <br />
 
-        <p>{imageObjects.name}</p>
-        <Link to={`/beers/${imageObjects["id"]}`}>
-          <img src={imageObjects.image_url} alt={imageObjects.name} className="w-100" />
+        <Link to={`/beers/${filters["id"]}`}>
+          <Image
+            src={filters.image_url}
+            alt={filters.name}
+            size="small"
+            centered
+          />
         </Link>
-
-        <p>{imageObjects.id}</p>
-      </div>
-    </div>
+      </Card>
+    </Grid>
   );
 };
 

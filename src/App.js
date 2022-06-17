@@ -1,23 +1,23 @@
 import "./App.css";
-import Home from "./HomeStore/Home";
+import Home from "./HomeStore/Home/Home";
 import Header from "./Nav/Header";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter,  Routes, Route } from "react-router-dom";
 import SingleBeer from "./SingleBeer/SingleBeer";
-
 
 function App() {
   return (
     <>
-      <Router>
-        <Header />
-    
-        <Routes>
+      <BrowserRouter>
      
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/beers/:id" element={<SingleBeer />}></Route>
-        </Routes>
-      </Router>
+          <Header />
+
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/beers/:id" element={<SingleBeer />}></Route>
+          </Routes>
+      
+      </BrowserRouter>
     </>
   );
 }
