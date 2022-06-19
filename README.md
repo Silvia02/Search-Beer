@@ -2,6 +2,40 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Title: Add To Cart APP.
+
+## Features 
+1. A search for a specific item
+2. A page with the result with 10 items.
+3. A page to show the single item.
+
+## Running The Project  locally 
+## Fron the repo:
+
+1. Clone this project locally
+2. Run npm install in your bash/command line
+
+## Depedencies
+
+1. @closeio/use-infinite-scroll,
+2. @react-hook/intersection-observer,
+3. @testing-library/user-event
+4. react-infinite-scroll-hook,
+5. react-infinite-scroller,
+6. react-intersection-observer,
+7. axios,
+8. axios-hooks,
+9. react-dom,
+10. react-router-dom,
+11. semantic-ui-css,
+12. semantic-ui-react,
+13. styled-components
+
+## devDependencies
+
+1. fsevents.
+2. react-app-rewired.
+
 ## Available Scripts
 
 In the project directory, you can run:
