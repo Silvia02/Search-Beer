@@ -1,28 +1,57 @@
-import React from "react";
-import './Styles.css'
-import { Link } from "react-router-dom";
-import { Grid, Image, Card } from "semantic-ui-react";
+import React, { useState, useEffect } from "react";
+import {
+  Container,
+  Input,
+  Button,
+  Card,
+  Item,
+  Grid,
+  Form,
+} from "semantic-ui-react";
+import BeerList from "./BeerList";
+import useFetch from "../HomeStore/Hooks/useNewFetch";
 
-const Search = ({ filters }) => {
+const Search = () => {
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const { isLoading, beers, error } = useFetch(query, page);
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
   return (
-    <Grid >
-      <Card >
-        <h3>{filters.name}</h3>
-        <br />
-        <strong>Alcohol content: {filters.abv}</strong>
-        <br />
-
-        <Link to={`/beers/${filters["id"]}`}>
-          <Image
-            src={filters.image_url}
-            alt={filters.name}
-            size="small"
-            centered
-          />
-        </Link>
-      </Card>
-    </Grid>
+    <div className="App">
+      <Form>
+        <Input
+          value={query}
+          type="text"
+          placeholder="Search beers"
+          name="query"
+          onChange={handleChange}
+        />
+        <Button
+          onClick={() => {
+            setPage(page + 1);
+          }}
+        >
+          Load More
+        </Button>
+      </Form>
+      <Item>
+        {beers.length > 0 ? (
+          beers.map((b) => (
+            <div key={b.id}>
+              <BeerList filters={b} />
+            </div>
+          ))
+        ) : (
+          <div>
+            <i>No beer found...</i>
+          </div>
+        )}
+      </Item>
+    </div>
   );
 };
-
 export default Search;

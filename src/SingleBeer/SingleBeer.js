@@ -31,9 +31,9 @@ const SingleBeer = () => {
         return (
           <>
             <Card >
+              <div key={element.id}>
               <Image src={element.image_url} size='small' wrapped className="ui centered image" />
 
-              <p key={element.id}>
                 <h2>{element.name}</h2>
 
                 <strong>
@@ -43,7 +43,7 @@ const SingleBeer = () => {
                 <strong>Description</strong>
                 <p>{element.description}</p>
                 <Title>Fits perfectly with:</Title>
-              </p>
+              </div>
               {element.food_pairing.map((food, index) => {
                 return (
                   <Div>
