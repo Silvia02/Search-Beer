@@ -5,12 +5,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Title: Add To Cart APP.
 
 ## Features 
-1. A search for a specific item
-2. A page with the result with 10 items.
-3. A page to show the single item.
+1. A search term for a specific item
+2. A page showing 10 items from search.
+3. A page to show a single item.
 
 ## Running The Project  locally 
-## Fron the repo:
+## From the repo:
 
 1. Clone this project locally
 2. Run npm install in your bash/command line
