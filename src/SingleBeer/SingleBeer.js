@@ -44,7 +44,7 @@ const SingleBeer = () => {
                 <p>{element.description}</p>
                 <Title>Fits perfectly with:</Title>
               </div>
-              {element.food_pairing.map((food, index) => {
+              {element.food_pairing.map((food, index) => { //nested loop
                 return (
                   <Div>
                     <List as="ul" key={index}>

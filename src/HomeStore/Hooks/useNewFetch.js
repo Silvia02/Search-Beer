@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 //Hooks are reusable functions. Custom Hooks start with "use".
 //When you have component logic that needs to be used by multiple components,
 
-//useFetch which contains all of the logic needed to fetch our data.
+//useFetch which contains all of the logic needed to fetch my data.
 function useFetch(query, page) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [beers, setBeers] = useState([]); // Initialize state to hold the beers
 
-  useEffect(() => {
-    console.log("render");
-    setBeers([]);
-  }, [query, page]);
-
-  useEffect(() => {
+  const getData = useCallback(() => {
     setIsLoading(true);
     setError(false);
 
@@ -34,9 +29,16 @@ function useFetch(query, page) {
       .catch((err) => {
         console.log(err + "error");
       });
+
+    console.log("useEffect ran...");
   }, [query, page]);
 
-  return { isLoading, error, beers };
+  useEffect(() => {
+    console.log("render");
+    setBeers([]);
+  }, [query, page]); //dependencies
+
+  return { isLoading, error, beers, getData };//
 }
 
 export default useFetch;

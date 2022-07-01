@@ -3,10 +3,10 @@ import "./Styles.css";
 import { Link } from "react-router-dom";
 import { Grid, Image, Card } from "semantic-ui-react";
 
-// Geting a prop from the parent component to display data.
+// Getting a prop from parent component to display data.
 const BeerList = ({ filters }) => {
   return (
-    <Grid class="ui container center aligned">
+    <Grid className="ui centered card">
       <Card>
         <h3>{filters.name}</h3>
         <br />
