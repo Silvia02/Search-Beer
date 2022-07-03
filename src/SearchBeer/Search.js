@@ -22,7 +22,8 @@ const Search = () => {
 
   const handleClick = (evt) => {
     evt.preventDefault();
-    getData(setPage(page + 1)); // laddar comer beers 10 item
+    getData(setPage(page + 1)); 
+    
   };
 
   return (
