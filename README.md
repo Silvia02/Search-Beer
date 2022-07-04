@@ -1,2 +1,2 @@
-# addtocart-react-app
-Product add to cart using React
+# Search-Beer
+Search for a specific beer name...
