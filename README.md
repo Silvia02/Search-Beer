@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Title: Add To Cart APP.
+## Title: Search-Beer.
 
 ## Features 
 1. A search term for a specific item
