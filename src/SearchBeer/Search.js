@@ -12,9 +12,9 @@ import BeerList from "./BeerList";
 import useFetch from "../HomeStore/Hooks/useNewFetch";
 
 const Search = () => {
-  const [query, setQuery] = useState([""]);
+  const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-  const { isLoading, beers, error, getData } = useFetch(query, page);
+  const { isLoading, beers, getData, noResult } = useFetch(query, page);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -22,8 +22,7 @@ const Search = () => {
 
   const handleClick = (evt) => {
     evt.preventDefault();
-    getData(setPage(page + 1)); 
-    
+    getData(setPage(page + 1));
   };
 
   return (
@@ -40,13 +39,26 @@ const Search = () => {
         <Button onClick={handleClick}>Load More</Button>
       </Form>
       <Item>
-        {beers.map((b) => {
-          return (
-            <div key={b.id}>
-              <BeerList filters={b} />
-            </div>
-          );
-        })}
+        {isLoading ? (
+          <h3>is Loading...</h3>
+        ) : (
+          <div>
+            {!noResult ? (
+              beers.map((b) => (
+                <div key={b.id}>
+                  <BeerList filters={b} />
+                </div>
+              ))
+            ) : (
+              <div>
+                <h3 className="noResults">
+                  No more results found for <em>"{query}"</em>
+                </h3>
+                <h3>Please try again.</h3>
+              </div>
+            )}
+          </div>
+        )}
       </Item>
     </div>
   );

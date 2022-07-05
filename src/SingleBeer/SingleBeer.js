@@ -9,6 +9,7 @@ const SingleBeer = () => {
   let { id } = useParams();
   const navigate = useNavigate();
 
+
   useEffect(() => {
     axios
       .get(`https://api.punkapi.com/v2/beers/${id}`)
@@ -20,6 +21,8 @@ const SingleBeer = () => {
       .catch((err) => {
         console.log(err);
       });
+    
+ 
   }, [id]);
 
   return (

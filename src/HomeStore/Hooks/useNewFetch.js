@@ -7,12 +7,11 @@ import axios from "axios";
 //useFetch which contains all of the logic needed to fetch my data.
 function useFetch(query, page) {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
   const [beers, setBeers] = useState([]); // Initialize state to hold the beers
+  const [noResult, setNoResult] = useState(false);
 
   const getData = useCallback(() => {
     setIsLoading(true);
-    setError(false);
 
     axios
       .get(
@@ -21,9 +20,9 @@ function useFetch(query, page) {
       .then((res) => {
         const result = res.data;
         console.log(result);
+        if (result.length === 0) setNoResult(true);
 
         setBeers((prev) => [...prev, ...result]);
-
         setIsLoading(false);
       })
       .catch((err) => {
@@ -38,7 +37,7 @@ function useFetch(query, page) {
     setBeers([]);
   }, [query, page]); //dependencies
 
-  return { isLoading, error, beers, getData };//
+  return { isLoading, beers, getData, noResult }; //
 }
 
 export default useFetch;
