@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
+
 //Hooks are reusable functions. Custom Hooks start with "use".
 //When you have component logic that needs to be used by multiple components,
 
@@ -31,7 +32,7 @@ function useFetch(query, page) {
 
     console.log("useEffect ran...");
   }, [query, page]);
-
+  
   useEffect(() => {
     console.log("render");
     setBeers([]);

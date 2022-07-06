@@ -18,7 +18,12 @@ const Search = () => {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
+    localStorage.setItem("inputValue", e.target.value); // set input value
   };
+
+  useEffect(() => {
+    setQuery(localStorage.getItem("inputValue")); // store input value
+  }, []);
 
   const handleClick = (evt) => {
     evt.preventDefault();
@@ -52,7 +57,7 @@ const Search = () => {
             ) : (
               <div>
                 <h3 className="noResults">
-                  No more results found for <em>"{query}"</em>
+                  No results found for <em>"{query}"</em>
                 </h3>
                 <h3>Please try again.</h3>
               </div>
